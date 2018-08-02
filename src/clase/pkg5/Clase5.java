@@ -15,7 +15,25 @@ public class Clase5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     Pantalla p = new Pantalla();
+        Navegar navegar = new Navegar();
+        Modelo modelo = new Modelo();
+        Pantalla vista = new Pantalla();  
+                
+        navegar.modelo = modelo;
+        navegar.vista = vista;
+        vista.navegar = navegar;
+        vista.modelo=modelo;
+        
+    
+    
+        
+        vista.iniciar();
+        
+        
+       
+       
+        
+        
     }
     
 }
