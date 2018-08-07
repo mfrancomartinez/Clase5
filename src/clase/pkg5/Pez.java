@@ -9,8 +9,13 @@ package clase.pkg5;
  *
  * @author admin
  */
-public class Pez {
+public class Pez implements IBusquedaCodigo{
     public String codigo;
     public String nombre;
     public String ruta;
+
+    @Override
+    public String getCodigo() {
+        return codigo;
+    }
 }
