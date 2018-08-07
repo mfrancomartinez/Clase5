@@ -11,17 +11,21 @@ import java.util.ArrayList;
  *
  * @author admin
  */
-public class Modelo implements IModelo{
+public class Modelo implements IModelo, IBusquedaPosicion{
     ArrayList <Pez> lista;
-    int i;
+    
     public Modelo(){
     
     lista = new ArrayList();
-    Pez p = new Pez();
-    for (i = 1; i<lista.size();i++)
-    p.nombre = "Pez"+i;
-    p.codigo = "P"+i;
-    p.ruta ="pez"+i+".jpg";
+    
+    for (int i = 0; i<47;i++)
+    {
+        Pez p = new Pez();
+        p.nombre = "Pez "+i;
+        p.codigo = "P"+i;
+        p.ruta ="pez"+(i+1)+".jpg";
+        lista.add(p);
+    }
     
 }
 
@@ -34,6 +38,26 @@ public class Modelo implements IModelo{
     public Pez get(int posicion) {
         return lista.get(posicion);
     }
+
+    @Override
+    public Pez getPosicion(String codigo) {        
+        Pez elpez=null;
+        int i;
+        
+        for ( i = 0; i<lista.size(); i++){
+          if (lista.get(i).codigo == codigo){
+              break;
+          }        
+        }        
+        if(i!=lista.size())
+        {
+            elpez= lista.get(i);
+        }
+        
+        return elpez;
+    }
+
+    
     
     
    
